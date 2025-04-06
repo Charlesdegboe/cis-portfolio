@@ -96,13 +96,14 @@ if (backToTopButton) {
     });
 }
 
-// Hamburger menu toggle
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-  
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
+// Force scroll to top on page refresh
+window.addEventListener("beforeunload", function () {
+    window.scrollTo(0, 0);
   });
+  window.onload = function () {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+  };
+  
   
