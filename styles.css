@@ -90,10 +90,25 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    gap: 30px;
 }
 
 .hero-text {
     text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 2.8rem;
+    margin: 0;
+    font-weight: 700;
+    color: white;
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    color: #eee;
+    margin-bottom: 10px;
 }
 
 .highlight {
@@ -103,8 +118,9 @@ a {
 .typing-container {
     height: 30px;
     margin-top: 10px;
+    font-size: 1.1rem;
+    color: #fff;
 }
-
 .cursor {
     animation: blink 1s infinite;
 }
@@ -115,14 +131,59 @@ a {
 }
 
 .profile-pic {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 20px;
-    border: 4px solid #3498db;
+    border: 5px solid #3498db;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 768px) {
+    .profile-pic {
+        width: 200px;
+        height: 200px;
+    }
 }
 
+
+@media (min-width: 768px) {
+    .hero-content {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+    }
+  
+    .profile-pic {
+      margin-bottom: 0;
+      margin-right: 20px;
+    }
+  
+    .hero-text {
+        text-align: left;
+        max-width: 600px;
+    }
+}
+  .hero-tags {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .tag {
+    background-color: #3498db;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    animation: float 5s infinite ease-in-out;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
 
 /* Sections */
 section {
@@ -469,4 +530,34 @@ nav .nav-links {
 .filter-btn.active, .filter-btn:hover {
     background-color: #3498db;
     color: white;
+}
+
+#resume {
+    padding: 80px 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.resume-box {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.resume-box iframe {
+    aspect-ratio: 8.5 / 11; /* Match standard paper size */
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+#resume .btn {
+    margin-top: 20px;
 }
