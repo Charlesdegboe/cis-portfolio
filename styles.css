@@ -27,20 +27,85 @@ header {
 }
 
 /* Navigation */
+/* Base nav */
 nav {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 0 20px;
-}
+    align-items: center;
+    padding: 1rem 20px;
+    background-color: #2c3e50;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  /* Hamburger icon */
+  .hamburger {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Nav links (desktop default) */
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+  }
+  
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .nav-links li a:hover {
+    color: #3498db;
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+  
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background-color: #2c3e50;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+    }
+  
+    .nav-links.show {
+      display: flex;
+    }
+  
+    .nav-links li {
+      margin: 10px 0;
+      text-align: center;
+    }
+  }
+  
+  
 
-.logo {
+  .logo {
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
     text-decoration: none;
-}
+    margin-bottom: 0;
+  }
+
+  nav > * {
+    margin-bottom: 10px;
+  }
+  
+  
 
 /* Wrap center nav in a flex container */
 .nav-center {
