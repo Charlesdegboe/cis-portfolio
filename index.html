@@ -61,24 +61,659 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2>Technical Skills</h2>
-            <div class="skills-container">
-                <div class="skill-card">HTML/CSS</div>
-                <div class="skill-card">JavaScript</div>
-                <div class="skill-card">Database Design</div>
-                <div class="skill-card">Networking</div>
-                <div class="skill-card">SQL</div>
-                <div class="skill-card">C#</div>
-                <div class="skill-card">InfoSecurity</div>
-                <div class="skill-card">Linux/Unix</div>
-                <div class="skill-card">Microsoft Excel Certified</div>
-                <div class="skill-card">Agile Methodologies</div>
-            </div>
-        </div>
-    </section>
+ 
+ <!-- Skills Section -->
+<section id="skills">
+  <div class="container">
+    <h2>Technical Skills</h2>
+    <div class="skills-container">
+      <button class="skill-btn" data-skill="htmlcss">HTML/CSS</button>
+      <button class="skill-btn" data-skill="databasedesign">Database Design</button>
+      <button class="skill-btn" data-skill="systemsdesign">Systems Analysis and Design</button>
+      <button class="skill-btn" data-skill="csharp">C#</button>
+      <button class="skill-btn" data-skill="networksecurity">Network/Security</button>
+    </div>
+  </div>
+</section>
+
+<!-- Skill Modal: HTML/CSS -->
+<div class="modal" id="modal-htmlcss">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h3>HTML/CSS</h3>
+    <p>This was a CIS 150 course, it provides an overview of contemporary information systems, and how they are used in organizations. It presents an introduction to the discipline of CIS and how information systems can be used to create competitive advantage. Topics include application/web development, including the system development life cycle, information security, business process management, and emerging technologies. Students will develop basic web sites including the use of HTML, CSS, and Javascript.</p>
+
+    <pre class="code-preview"><code>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+   &lt;!--
+   New Perspectives on HTML5 and CSS3, 8th Edition
+   Tutorial 7
+   Coding Challenge 3
+   
+   Author:Charles Degboe
+   Date:11/4/2023   
+   Filename: code7-3.html
+
+   regular expression pattern for credit card numbers:
+
+   ^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$
+
+   regular expression pattern for CSC numbers:
+
+   ^\d{3}$
+   --&gt;
+ &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Coding Challenge 7-3&lt;/title&gt;
+    &lt;link href="code7-3_forms.css" rel="stylesheet" /&gt;
+    &lt;link href="code7-3_valid.css" rel="stylesheet" /&gt;
+    &lt;script src="rb_formsubmit.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Payment Information&lt;/h1&gt;
+    &lt;form action="process-card.php" method="post"&gt;
+        &lt;fieldset&gt;
+            &lt;select id="ccard" name="creditcard" required&gt;
+                &lt;option value=""&gt;Credit Card Type&lt;/option&gt;
+                &lt;option value="amex"&gt;American Express&lt;/option&gt;
+                &lt;option value="disc"&gt;Discover&lt;/option&gt;
+                &lt;option value="master"&gt;MasterCard&lt;/option&gt;
+                &lt;option value="visa"&gt;Visa&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;label for="cname"&gt;Name&lt;/label&gt;
+            &lt;input id="cname" name="cardname" type="text" required /&gt;
+            &lt;label for="cnum"&gt;Card Number&lt;/label&gt;
+            &lt;input type="text" name="cardnumber" id="cnum"
+                pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$"
+                required /&gt;
+            &lt;select name="cardmonth" id="month" required&gt;
+                &lt;option value=""&gt;Month&lt;/option&gt;
+                &lt;option value="01"&gt;January (01)&lt;/option&gt;
+                &lt;option value="02"&gt;Feburary (02)&lt;/option&gt;
+                &lt;option value="03"&gt;March (03)&lt;/option&gt;
+                &lt;option value="04"&gt;April (04)&lt;/option&gt;
+                &lt;option value="05"&gt;May (05)&lt;/option&gt;
+                &lt;option value="06"&gt;June (06)&lt;/option&gt;
+                &lt;option value="07"&gt;July (07)&lt;/option&gt;
+                &lt;option value="08"&gt;August (08)&lt;/option&gt;
+                &lt;option value="09"&gt;September (09)&lt;/option&gt;
+                &lt;option value="10"&gt;October (10)&lt;/option&gt;
+                &lt;option value="11"&gt;November (11)&lt;/option&gt;
+                &lt;option value="12"&gt;December (12)&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;select name="cardyear" id="year"&gt;
+                &lt;option value=""&gt;Year&lt;/option&gt;
+                &lt;option value="2020"&gt;2020&lt;/option&gt;
+                &lt;option value="2021"&gt;2021&lt;/option&gt;
+                &lt;option value="2022"&gt;2022&lt;/option&gt;
+                &lt;option value="2023"&gt;2023&lt;/option&gt;
+                &lt;option value="2024"&gt;2024&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;label for="csc"&gt;CSC&lt;/label&gt;
+            &lt;input type="text" id="csc" name="cardcsc" pattern="^\d{3}$" maxlength="3" max="999" required /&gt;
+            &lt;input type="submit" value="Submit Payment" /&gt;
+        &lt;/fieldset&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="https://github.com/Charlesdegboe/portfolio" target="_blank" class="btn">View on GitHub</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" id="modal-databasedesign">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h3>Database Design</h3>
+    <p>This course was CIS 310. It provides a solid and practical foundation for the design and implementation of database systems. Emphasis is on relational database models, normalization, E-R modeling, locking, SQL, distributed databases, and security. Tools like SQL Server were used in hands-on labs.</p>
+
+    <pre class="code-preview"><code>-- Group Work SQL
+      /*
+      STUDENT NAME: Jrew Simpson, Bryce Cooper, Charles Degboe, Cora Alward
+      STUDENT ID: 5470008, 5443598, 5491133, 5492390
+      Which Questions did you answer? e.g. 1-5, 10, 12....
+      */
+      -- 1, 2, 5, 9, 12-16, 19-23, 26
+      /*
+      Note: your query should be based on the actual data. It is good to gain familiarity with table contents before starting to query. 
+      Query should use as few tables as possible if a JOIN is required. Sometimes a single table may contain all the attribute you need.
+      */
+      USE BIKE;
+      /*
+      Grading: 
+      No Credit- If you provide no query, or ONLY the query without explanation, even if is fully correct.
+      Full Credit 1 - Provide your working/thinking process via comments
+       
+      Your intermediate steps/queries while building the query, 
+       
+      And the fully correct query for the query
+      Full Credit 2 - If you cannot arrive at a fully correct query, 
+       
+      Still, provide your working/thinking process via comments, which tables have you checked, which may contain data, which do not
+       
+      Your intermediate steps/queries while attemptiong to build the query, and at least 3+ relevant, trying queries 
+       
+      *they don't need to execute properly, but should be relevant, and demonstrate your thinking progression. Simple queries such 
+      as Select * from table do NOT count
+      */
+      --====================================================Exercise Questions =====================================================
+      --==========================================& Expected output table columns ===================================================
+      --1. List the customers from California who bought red mountain bikes in September 2003. 
+      --Use order date as date bought. Multi-color bikes with red are considered red bikes.
+      SELECT C.CustomerID, C.LastName, C.FirstName, B.ModelType, P.ColorList, B.OrderDate, B.SaleState -- Selecting all necessary attributes from 
+      tables Bicycle, Customer, and Paint
+       
+      FROM CUSTOMER C
+       
+      JOIN Bicycle B ON C.CustomerID = B.CustomerID -- Joining all three tables together
+       
+      JOIN Paint P ON B.PaintID = P.PaintID
+       
+      WHERE B.PaintID IN (5, 6, 13, 14) -- All these PaintIDs contain RED
+       
+      AND SaleState='CA' -- Only state
+       
+      AND ModelType LIKE '%Mountain%' -- Only type
+       
+      AND CONVERT(VARCHAR, b.OrderDate, 120) LIKE '%2003-09%'; -- Needs to be during September 2003, had to convert 
+      OrderDate to VARCHAR for LIKE operator to work correctly
+      --CustomerID 
+      LastName 
+      FirstName 
+      ModelType 
+      ColorList 
+      OrderDate 
+      SaleState
+      --2. List the employees who sold race bikes shipped to Wisconsin without the help of a retail store in 2001, 
+      --Without help of retail store means rders completed without the help of a retail store are walk-in or direct sales.
+      --EmployeeID 
+      LastName 
+      SaleState 
+      ModelType 
+      StoreID 
+      OrderDate
+      SELECT E.EMPLOYEEID, E.LASTNAME, B.SALESTATE, B.MODELTYPE, RS.STOREID, B.ORDERDATE
+       
+      FROM EMPLOYEE E INNER JOIN BICYCLE B ON E.EMPLOYEEID = B.EMPLOYEEID
+       
+      INNER JOIN RETAILSTORE RS ON RS.STOREID = B.STOREID
+       
+      WHERE B.MODELTYPE = 'RACE'
+       
+      AND
+       
+      B.SALESTATE = 'WI'
+       
+      AND
+       
+      (RS.STORENAME LIKE '%WALK-IN%' OR RS.STORENAME LIKE '%DIRECTSALES%')
+       
+      AND
+       
+      YEAR(B.ORDERDATE) = 2001;
+      --3. List all of the (distinct) rear derailleurs installed on road bikes sold in Florida in 2002.
+      --ComponentID 
+      ManufacturerName 
+      ProductNumber
+      --4. Who bought the largest (frame size) full suspension mountain bike sold in Georgia in 2004?
+      --CustomerID 
+      LastName 
+      FirstName 
+      ModelType 
+      SaleState 
+      FrameSize 
+      OrderDate
+      --5. Which manufacturer gave us the largest discount on an order in 2003?
+      --ManufacturerID 
+      ManufacturerName
+      SELECT M.MANUFACTURERID, M.MANUFACTURERNAME
+       
+      FROM MANUFACTURER M INNER JOIN PURCHASEORDER PO ON M.MANUFACTURERID = PO.MANUFACTURERID
+       
+      WHERE YEAR(ORDERDATE) = 2003 
+       
+      AND
+       
+      DISCOUNT = (SELECT MAX(DISCOUNT)
+       
+      FROM PURCHASEORDER
+       
+      WHERE YEAR(ORDERDATE) = 2003);
+      --6. What is the most expensive road bike component we stock that has a quantity on hand greater than 200 units?
+      --ComponentID 
+      ManufacturerName 
+      ProductNumber 
+      Road 
+      Category 
+      ListPrice 
+      QuantityOnHand
+      
+      --7. Which inventory item represents the most money sitting on the shelf—based on estimated cost?
+      --Inventory value is defined as [EstimatedCost]*[QuantityOnHand] in Component.
+      --ComponentID 
+      ManufacturerName 
+      ProductNumber 
+      Category 
+      Year 
+      Value
+      --8. What is the greatest number of components ever installed in one day by one employee?
+      --EmployeeID 
+      LastName 
+      DateInstalled 
+      CountOfComponentID
+      --9. What was the most popular letter style on race bikes in 2003?
+      --LetterStyleID 
+      CountOfSerialNumber
+      SELECT TOP 1 LetterStyleID, COUNT(SerialNumber) AS COUNTOFSERIALNUMBER -- Selecting LetterStyleID and Counting amount of SNs, 
+       
+      FROM Bicycle
+       
+      WHERE CONVERT(VARCHAR, OrderDate, 120) LIKE '%2003%' -- Has to be year 2003
+       
+      AND ModelType = 'Race' -- Has to be a race bike
+       
+      GROUP BY LetterStyleID
+       
+      ORDER BY COUNT(*) Desc; -- This along with the Top 1 shows causes the query to show most popular letter style
+      --10. Which customer spent the most money with us and how many bicycles did that person buy in 2002?
+      --Use 2002 for both amount spent and number of bikes bought. Use OrderDate when determining year. Use SalePrice as amount spent.
+      --CustomerID 
+      LastName 
+      FirstName 
+      Number of Bikes 
+      Amount Spent
+      --11. Have the sales of mountain bikes (full suspension or hard tail) increased or decreased from 2000 to 2004 (by count not by value)?
+      --We are looking for any bike with a model type that starts with the word Mountain.
+      --SaleYear 
+      CountOfSerialNumber
+      --12. Which component did the company spend the most money on in 2003?
+      --The amount spent on a component is the sum of purchase price * quantity. Note the same component may have been purchased multiple times in a 
+      time period.
+      --ComponentID 
+      ManufacturerName 
+      ProductNumber 
+      Category 
+      Value
+      SELECT TOP 1 C.ComponentID, M.ManufacturerName, C.ProductNumber, C.Category, SUM(Pi.PricePaid*Pi.Quantity) AS Value 
+       
+      FROM PurchaseItem Pi
+       
+      JOIN Component C ON Pi.ComponentID = C.ComponentID
+       
+      JOIN Manufacturer M ON C.ManufacturerID = M.ManufacturerID -- Joining all three necessary tables
+       
+      GROUP BY C.ComponentID, M.ManufacturerName, C.ProductNumber, C.Category
+       
+      ORDER BY VALUE DESC; -- Sorts by highest to lowest values, along with Top 1 gives the highest value
+      --13. Which employee painted the most red race bikes in May 2003?
+      --EmployeeID 
+      LastName 
+      Number Painted
+      SELECT TOP 1 E.EmployeeID, E.LastName, COUNT(Painter) AS Number_Painted
+       
+      FROM Bicycle B JOIN Employee E ON B.EmployeeID = E.EmployeeID -- Query requires table joins
+       
+      WHERE B.PaintID IN (5, 6, 13, 14) -- Red Paint IDs
+       
+      AND CONVERT(VARCHAR, b.OrderDate, 120) LIKE '%2003-05%' -- Filters to May 2003 
+       
+      GROUP BY E.EmployeeID, E.LastName 
+       
+      ORDER BY Number_Painted DESC; -- Orders by highest number painted, top 1 shows the most paints
+      --14. Which California bike shop helped sell the most bikes (by value) in 2003?
+      --StoreID 
+      StoreName 
+      City 
+      SumOfSalePrice
+      SELECT TOP 1 RS.STOREID, RS.STORENAME, C.CITY, SUM(B.SALEPRICE) AS SUMOFSALEPRICE
+       
+      FROM RETAILSTORE RS INNER JOIN BICYCLE B ON RS.STOREID = B.STOREID
+       
+      INNER JOIN CITY C ON C.CITYID = RS.CITYID
+       
+      WHERE C.STATE = 'CA'
+       
+      AND 
+       
+      YEAR(B.ORDERDATE) = 2003
+       
+      GROUP BY RS.STOREID, RS.STORENAME, C.CITY
+       
+      ORDER BY SUMOFSALEPRICE DESC;
+      --15. What is the total weight of the components on bicycle 11356?
+      --TotalWeight
+      SELECT SUM(C.WEIGHT) AS TOTALWEIGHT
+       
+      FROM COMPONENT C INNER JOIN BIKEPARTS B ON B.COMPONENTID = C.COMPONENTID
+       
+      WHERE B.SERIALNUMBER = '11356';
+      --16. What is the total list price of all items in the 2002 Campy Record groupo?
+      --GroupName 
+      SumOfListPrice
+      SELECT G.GroupName, SUM(ListPrice) AS SumOfListPrice -- Selecting group name from Groupo and Sum of listprices from Component
+       
+      FROM Component C
+       
+      JOIN GroupComponents GC ON C.ComponentID = GC.ComponentID -- Joining Groupo, GroupComponent, and Component
+       
+      JOIN Groupo G ON GC.GroupID = G.ComponentGroupID -- Although nothing is selected or filtered from GroupComponent, it's 
+      necessary because it connects the two tables
+       
+      WHERE GroupName = 'Campy Record 2002' -- List price sum from Campy Record 2002
+       
+      GROUP BY G.GroupName; -- Needed for query to print out
+      --17. In 2003, were more race bikes built from carbon or titanium (based on the down tube)?
+      --As output you may show the number of bikes for both materials. Use OrderDate.
+      --Material 
+      CountOfSerialNumber 
+      --18. What is the average price paid for the 2001 Shimano XTR rear derailleurs?
+      --AvgOfPricePaid
+      --19. What is the average top tube length for a 54 cm (frame size) road bike built in 1999?
+      --AvgOfTopTube
+      
+      SELECT AVG(TopTube) AS AvgOfTopTube -- Average TopTube length
+       
+      FROM Bicycle -- Single table Bicycle
+       
+      WHERE FrameSize = 54 -- 54 cm Frame size
+       
+      AND CONVERT(VARCHAR, StartDate, 120) LIKE '%1999%'; -- Filter to 1999 date
+      --20. On average, which costs (list price) more: road tires or mountain bike tires?
+      --Road 
+      AvgOfListPrice
+      SELECT Road, AVG(ListPrice) AS AvgOfListPrice -- Selected tire road type and average list prices
+       
+      FROM Component -- Single table query from Component
+       
+      WHERE Road='Road' -- Filters to Road and MTB, No NULL values
+       
+      OR Road='MTB'
+       
+      GROUP BY Road
+       
+      ORDER BY AvgOfListPrice DESC; -- Shows the Average List Prices with highest on top
+      --21. In May 2003, which employees sold road bikes that they also painted?
+      --EmployeeID 
+      LastName
+      SELECT E.EmployeeID, E.LastName -- Selected Last name and employee IDs
+       
+      FROM Bicycle B JOIN Employee E ON B.EmployeeID = E.EmployeeID -- Join Bicycle and Employee tables
+       
+      WHERE E.EMPLOYEEID = B.Painter; -- If Employee ID and Painter have the same values then they sold the bikes that they also 
+      painted
+      -- Had to select painter before finishing query to make sure the IDs matched
+      --22. In 2002, was the Old English letter style more popular with some paint jobs?
+      --PaintID 
+      ColorName 
+      Number of Bikes Painted
+      SELECT B. PAINTID, P. COLORNAME, COUNT (B. SERIALNUMBER) AS [NUMBER OF BIKES PAINTED]
+       
+      FROM BICYCLE B INNER JOIN PAINT P ON B. PAINTID = P.PAINTID
+       
+      WHERE B. LETTERSTYLEID = 'ENGLISH'
+       
+      AND
+       
+      YEAR(B.ORDERDATE) = '2002'
+       
+      GROUP BY P.COLORNAME, B. PAINTID
+       
+      ORDER BY COUNT(B. SERIALNUMBER) DESC;
+      --23. Which race bikes in 2003 sold for more than the average price of race bikes in 2002?
+      --SerialNumber 
+      ModelType 
+      OrderDate 
+      SalePrice
+      SELECT SerialNumber, ModelType, OrderDate, SalePrice
+       
+      FROM Bicycle 
+       
+      WHERE SalePrice > (SELECT AVG(SalePrice) -- Nested query to find average price of bikes in 2002
+       
+      FROM Bicycle
+       
+      WHERE CONVERT(VARCHAR, OrderDate, 120) LIKE '%2002%' --Filter to year 2002 in 
+      nested query
+       
+      AND ModelType='Race') -- Filter to Race models
+       
+      GROUP BY SerialNumber, ModelType, OrderDate, SalePrice -- Group by function so I can use HAVING clause
+       
+      HAVING CONVERT(VARCHAR, OrderDate, 120) LIKE '%2003%' -- Filter to year 2003
+       
+      AND ModelType='Race'; -- Filter to Race models
+      --24. Which component that had no sales (installations) in 2004 has the highest inventory value (cost basis)?
+      --ManufacturerName 
+      ProductNumber 
+      Category 
+      Value 
+      ComponentID
+      --25. Create a vendor contacts list of all manufacturers and retail stores in California.
+      --Include only the columns for VendorName and Phone. 
+      --The retail stores should only include stores that participated in the sale of at least one bicycle in 2004
+      --Store Name Or Manufacturer Name 
+      Phone
+      --26. List all of the employees who report to Venetiaan.
+      --LastName 
+      EmployeeID 
+      LastName 
+      FirstName 
+      Title
+      SELECT LastName, FirstName, EmployeeID, Title, CurrentManager 
+       
+      FROM Employee 
+       
+      WHERE CurrentManager = '15293'; 
+      --27. List the components where the company purchased at least 25 percent more units than it used through June 30, 2000.
+      --ComponentID 
+      ManufacturerName 
+      ProductNumber 
+      Category 
+      TotalReceived 
+      TotalUsed 
+      NetGain 
+      NetPct 
+      ListPrice
+      --28. In which years did the average build time for the year exceed the overall average build time for all years? 
+      --The build time is the difference between order date and ship date.
+      --Use the difference between OrderDate and ShipDate.
+      --Year 
+      BuildTime
+</code></pre>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="https://github.com/Charlesdegboe/database-projects" target="_blank" class="btn">View Database Projects</a>
+    </div>
+  </div>
+</div>
+
+<!-- Systems Analysis and Design Modal (CIS 320) -->
+<div class="modal" id="modal-systemsdesign">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h3>Systems Analysis and Design</h3>
+    <p>This was CIS 320. Introduced fundamentals of object-oriented analysis and design using UML, data modeling, user interface specifications, and feasibility analysis. Students developed problem and design specs for an information system project, enhancing team collaboration and communication skills.</p>
+
+    <div class="image-carousel">
+      <img src="classdiagram.PNG" alt="System Design 1" />
+      <img src="databasediagram.PNG" alt="System Design 2" />
+      <img src="310erd.PNG" alt="System Design 3" />
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="https://github.com/Charlesdegboe/management-projects" target="_blank" class="btn">View System Design Projects</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" id="modal-csharp">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h3>C#</h3>
+    <p>This was CIS 199. Introduced object-oriented programming using C#, including classes, methods, encapsulation, and inheritance. Focused on solving real-world problems with hands-on lab assignments and iterative development.</p>
+
+    <pre class="code-preview"><code>// C# Insurance Calculator Program
+      //Charles Degboe
+      //CIS-199-01-4228
+      //10/20/2023
+      // This code calulates for both health and car insurance
+      using System;
+      using System.Collections.Generic;
+      using System.ComponentModel;
+      using System.Data;
+      using System.Drawing;
+      using System.Linq;
+      using System.Text;
+      using System.Threading.Tasks;
+      using System.Windows.Forms;
+      
+      namespace Program_2
+      {
+          public partial class Form_Program2 : Form
+          {
+              public Form_Program2()
+              {
+                  InitializeComponent();
+              }
+      
+              private void button_calculate_Click(object sender, EventArgs e)
+              {
+      
+                  //Establishing my variables/formulas to shorten programming time
+                  double HC_EPO = 100.00;
+                  double HC_PPO = 75.00;
+                  double HC_HDP = 25.00;
+                  double AC_Full = 115.00;
+                  double AC_Liability = 60.00;
+                  double lb_HCPY =0, lb_CCCPY =0;
+                  int lb_age, lb_car;
+      
+      
+      
+                  if (int.TryParse(tb_enterage.Text, out lb_age) == false ||lb_age <= 0)//Prompting the user for their input regarding their age
+                  {
+                      MessageBox.Show("Input Valid Age");// displaying an error if their age is less than 0
+                  }
+      
+                  
+                  if (int.TryParse(tb_Year.Text, out lb_car) == false || lb_car <= 0 || lb_car >= 2030)//Prompting the user for their input regarding their car manufacture year
+                  {
+                      MessageBox.Show("Invalid Manufacture Year Entered");//Displaying error if the users input is not within the required range set
+                  }
+                 
+                  if (combo_Hc.SelectedIndex == -1) //Displaying an error if the user does not click on any of the combo boxes
+                  {
+                      MessageBox.Show("Please select a combo box");
+                      lb_HCPY = 0;
+                  }
+                  if (combo_Hc.SelectedIndex == 0) //If user clicks on EPO, this sets the users health insurance type to EPO
+                  {
+                      lb_HCPY = HC_EPO;
+                  }
+                  else if (combo_Hc.SelectedIndex == 1)  //If user clicks on PPO, this sets the users health insurance type to PPO
+         
+                      {
+                      lb_HCPY = HC_PPO;
+                  }
+                  else if (combo_Hc.SelectedIndex == 2) //If user clicks on HDP, this sets the users health insurance type to HDP
+                  {
+                      lb_HCPY = HC_HDP;
+                  }
+                  if (combo_carCov.SelectedIndex == -1) //Displaying an error if the user does not click on any of the combo boxes
+                  {
+                      MessageBox.Show("Please select a combo box");
+                  }
+                  if (combo_carCov.SelectedIndex == 0) //If user clicks on Full Coverage, this sets the users auto insurance type to Full
+                  {
+                      lb_CCCPY = AC_Full;
+                  }
+                  else if (combo_carCov.SelectedIndex == 1) //If user clicks on Liability Coverage, this sets the users auto insurance type to Liability
+                  {
+                      lb_CCCPY = AC_Liability;
+                  }
+                  if (radioSmoke_yes.Checked == false && radioSmoke_No.Checked == false) // If the user does not click on either of the check boxes, this will display an error
+                  {
+                      MessageBox.Show("Please select yes or no");
+                  }
+                  else if (combo_Hc.SelectedIndex != 4 && radioSmoke_yes.Checked != false) // If the user clicked on one of the combo boxes and selected yes to smoke, this will add 30 dollars to their total health premium
+                  {
+                      lb_HCPY += 30;
+                  }
+                  if (radioYear_Yes.Checked == false && radioYear_No.Checked == false) // If the user does not click on either of the check boxes, this will display an error
+                  {
+                      MessageBox.Show("Please select yes or no");
+                  }
+                  else if (combo_carCov.SelectedIndex != 2 && radioYear_Yes.Checked != false)  // If the user clicked on one of the combo boxes and selected yes to have been in a car accident, this will add 30 percent to their total auto premium
+                  {
+                      lb_CCCPY *= 1.3;
+                  }
+                  if (combo_carCov.SelectedIndex != 3) // If the user is under the age of 25, this will code for a 10 dollar extra charge to be added to their Health Premium
+                  {
+                      if (lb_age <= 25)
+                      {
+                          lb_CCCPY += 10;
+                      }
+                  }
+                  if (lb_car >= 2012) // If the user's car's manufacturing year is older than 2012, this will add an extra 15 dollar charge to their auto premium
+                  {
+                      lb_CCCPY += 15;
+                  }
+      
+                  //Calculating each premium * 12 months
+                  lb_HCPY = lb_HCPY * 12;
+                  lb_CCCPY = lb_CCCPY * 12;
+      
+                 //Assigning locations for my calculations
+                  lb_HealthCost.Text = lb_HCPY.ToString("C");
+                  lb_CarCost.Text = lb_CCCPY.ToString("C");
+                  lb_TotalOp.Text = (lb_HCPY + lb_CCCPY).ToString("C");
+      
+              }
+      
+            
+              
+          }
+      }
+</code></pre>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="https://github.com/Charlesdegboe/software-projects" target="_blank" class="btn">View C# Work</a>
+    </div>
+  </div>
+</div>
+
+<!-- Network/Security Modal (CIS 480/481) -->
+<div class="modal" id="modal-networksecurity">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h3>Network/Security</h3>
+    <p>This content reflects CIS 480 (Networking) and CIS 481 (Information Security). Covered core concepts of networking and information security, including confidentiality, integrity, availability, authentication models, firewalls, intrusion detection, and risk management. Explored legal and ethical issues, disaster recovery, policy formation, and system life cycle security. Gained hands-on experience assessing vulnerabilities and implementing security controls aligned with best practices and national standards.</p>
+
+    <div class="image-carousel">
+      <img src="pttask4a.png" alt="Network Work 1" />
+      <img src="pttask4b.png" alt="Network Work 2" />
+      <img src="pttask5.png" alt="Network Work 3" />
+      <img src="pttask6a.png" alt="Network Work 4" />
+      <img src="security1.PNG" alt="Network Work 5" />
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="https://github.com/Charlesdegboe/cybersecurity-projects" target="_blank" class="btn">View Security Projects</a>
+    </div>
+  </div>
+</div>
+
+  
+  
+  
+  
 
     <!-- Projects Section -->
     <section id="projects">
@@ -87,32 +722,36 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <h3>Web & Software Development</h3>
-                    <p>Projects from Software Development I and CIS Capstone Project.</p>
+                    <p>Gained hands-on experience in object-oriented programming using C#, focusing on classes, methods, encapsulation, and inheritance to build functional applications (CIS 199). Later applied system development life cycle principles in a team-based capstone project (CIS 420), where we designed, developed, tested, and deployed a working web-based information system using a prototyping approach with iterative testing and user feedback.</p>
                     <a href="https://github.com/Charlesdegboe/software-projects" target="_blank" class="btn">View on GitHub</a>
                 </div>
                 <div class="project-card">
                     <h3>Database Systems</h3>
-                    <p>SQL, ERD, and database security projects.</p>
+                    <p>Developed a strong foundation in relational database design through ER modeling, normalization, and SQL implementation using tools like SQL Server (CIS 310). Gained advanced knowledge in database security (CIS 483), including access controls, secure architecture, auditing, data integrity, privacy regulations like HIPAA, and protection of distributed databases using security models for relational and object-oriented systems.</p>
                     <a href="https://github.com/Charlesdegboe/database-projects" target="_blank" class="btn">View on GitHub</a>
                 </div>
                 <div class="project-card">
                     <h3>Systems & Infrastructure</h3>
-                    <p>Projects involving systems analysis and IT infrastructure technologies.</p>
+                    <p>Gained practical experience in object-oriented analysis and design using UML, data modeling, feasibility analysis, and system specification development as part of a team-based project (CIS 320). Also developed a strong understanding of IT infrastructure, systems architecture, and communication networks (CIS 350), with a focus on designing solutions that align with organizational needs and collaborating effectively with infrastructure professionals and vendors.</p>
                     <a href="https://github.com/Charlesdegboe/systems-infrastructure" target="_blank" class="btn">View on GitHub</a>
                 </div>
                 <div class="project-card">
                     <h3>Cybersecurity</h3>
-                    <p>Hands-on labs in network security, forensics, and infosec fundamentals.</p>
+                    <p>Built a comprehensive foundation in cybersecurity across three core courses. Explored information security principles such as confidentiality, integrity, availability, access control, intrusion detection, risk management, and legal/privacy considerations (CIS 481). Applied this knowledge to network security strategies including firewalls, protocol analysis, threat mitigation, disaster recovery, and auditing (CIS 480). Gained hands-on experience in digital forensics through evidence collection, analysis, and legal reporting using specialized tools and methodologies (CIS 484).
+
+                    </p>
                     <a href="https://github.com/Charlesdegboe/cybersecurity-projects" target="_blank" class="btn">View on GitHub</a>
                 </div>
                 <div class="project-card">
                     <h3>Information Systems Management</h3>
-                    <p>Capstone project work and IT management planning.</p>
+                    <p>In CIS 410 – Management of Information Systems, completed a senior-level capstone focused on the strategic planning and management of IT within organizations. Topics included value chain analysis, IT architecture alignment, and information resource management. As part of the Culminating Undergraduate Experience (CUE), collaborated on a real-world community-based project to apply IT strategy and systems planning in a practical setting.</p>
                     <a href="https://github.com/Charlesdegboe/management-projects" target="_blank" class="btn">View on GitHub</a>
                 </div>
                 <div class="project-card">
                     <h3>Capstone Project – Guidebook Gold</h3>
-                    <p>This website was developed as part of a team project for CIS 420. I contributed to front-end development, database integration, and team collaboration.</p>
+                    <p>In CIS 420 – CIS Development Project, collaborated in a team to design, implement, and deploy a working web-based information system using a prototyping approach. Built on the analysis and design from CIS 320, with a focus on system development life cycle phases such as test planning, user acceptance testing, design reviews, and iterative development. Gained hands-on experience delivering a real-world system through structured team collaboration and task ownership.
+
+                    </p>
                     <a href="https://guidebookgold.xyz/" class="btn" target="_blank">View Live Site</a>
                 </div>
             </div>
