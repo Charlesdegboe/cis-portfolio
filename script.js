@@ -105,5 +105,25 @@ window.addEventListener("beforeunload", function () {
       window.scrollTo(0, 0);
     }, 100);
   };
+
+ // Modal popups for skills
+document.querySelectorAll('.skill-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const skill = btn.getAttribute('data-skill');
+      document.getElementById(`modal-${skill}`).style.display = 'block';
+    });
+  });
+  
+  document.querySelectorAll('.close-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.closest('.modal').style.display = 'none';
+    });
+  });
+  
+  window.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal')) {
+      e.target.style.display = 'none';
+    }
+  });
   
   
